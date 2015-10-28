@@ -14,6 +14,8 @@ using namespace std;
 int main() {
 	cout << "Week 10, Working with Pointers.... " << endl; //
 	Class1 c1;
-	c1.method1();
+	//c1.method1();
+	//c1.method2();
+	c1.method3();
 	return 0;
 }

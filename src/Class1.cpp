@@ -48,4 +48,23 @@ Class1::Class1(){}
 
 	}
 
+	void Class1::method3(){
+		int k;
+
+		cout << "please enter size or array..." << endl;
+		cin >> k;
+		int* ages = new int[k];
+	int* cursor;
+		cursor=ages;
+				int* off_board;
+				off_board=ages+k;
+
+				  int counter=1;
+			for(cursor = ages; cursor<off_board; ++cursor){
+							cout << "please enter int value number ..." << counter << endl;
+	printf( "%4i", *cursor);
+	counter++;
+	}
+
+	}
 
