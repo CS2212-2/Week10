@@ -7,6 +7,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "Class1.h"
+#include <math.h>
 
 using namespace std;
 
@@ -50,21 +51,92 @@ Class1::Class1(){}
 
 	void Class1::method3(){
 		int k;
-
 		cout << "please enter size or array..." << endl;
 		cin >> k;
 		int* ages = new int[k];
 	int* cursor;
-		cursor=ages;
-				int* off_board;
-				off_board=ages+k;
-
-				  int counter=1;
-			for(cursor = ages; cursor<off_board; ++cursor){
-							cout << "please enter int value number ..." << counter << endl;
+	cursor=ages;
+	int* off_board;
+	off_board=ages+k;
+  int counter=1;
+	for(cursor = ages; cursor<off_board; ++cursor){
+	cout << "please enter int value number ..." << counter << endl;
 	printf( "%4i", *cursor);
 	counter++;
 	}
 
 	}
 
+	void Class1::method4(){
+	typedef struct { float payrate, hours, pay; } WorkerT;
+	float k;
+			cout << "please enter size or array..." << endl;
+			cin >> k;
+			WorkerT* payroll = new WorkerT;
+	//WorkerT* payroll = malloc( 4 * sizeof{ WorkerT ) );
+	WorkerT* scan=payroll;
+	WorkerT* end = payroll + 4;
+
+	for (scan = payroll; scan<end; ++scan) {
+	scanf("%g %g", &scan->payrate, &scan->hours);
+	scan->pay = scan->payrate * scan->hours;
+	printf("%5.2f hours @ %6.2f per hour = $%8.2f\n",
+	scan->hours, scan->payrate, scan->pay );
+	}
+
+	}
+
+	void Class1::method5(){
+	short int ages[6] = {52,51,29,24,22,16};
+	short int* ip1 = ages;
+	short int* ip2 = ages + 3;
+	short int* ipend = ages + 6;
+	if (ip1 == ip2) {
+		// false
+	}
+	if (ip1 > ip2)
+	{
+			// false
+		}
+	if (ip2 < ipend) {
+		// true
+	}
+	}
+	//double // Base 2 logarithm
+	double Class1::log_2( double x ) { return log( x ) / log( 2 ); }
+	int Class1::menu( char* title, int n, const char* menu[] )
+	{
+	int ok, choice;
+	printf("\n%s\n", title);
+	for(;;) {
+	for( int k=0; k<n; ++k ) printf("\t %d. %s \n", k, menu[k]);
+	printf("\nEnter number of desired item: ");
+	ok = scanf("%d", &choice);
+	if (ok==1 && 0 <= choice && choice < n) break;
+	while (getchar() != '\n'); // Clean garbage out of input buffer.
+	puts("Illegal choice or input error; try again.");
+	}
+	return choice;
+	}
+	void Class1::method6(){
+		typedef double (*funcptr)( double );
+		int choice; // user’s function selection index
+		double x, fx; // data input, calculated function value
+		funcptr fp; // function chosen by user
+		#define CHOICES 7
+		char* greeting = " Select a function:";
+		const char* names[CHOICES] = { "quit", "sine", "cosine", "tangent",
+		"natural log", "base 2 log", "e to the x" };
+		funcptr function[CHOICES] = { NULL, sin, cos, tan, log, exp };
+		puts( " A Menu of Functions" );
+		for (;;) {
+		choice = Class1::menu( greeting, CHOICES, names );
+		if (choice == 0) break;
+		printf( " Enter x: " );
+		scanf( "%lg", &x );
+		fp = function[choice];
+		fx = fp( x );
+		printf( "\n %s(%g) = %g \n", names[choice], x, fx );
+		}
+
+	}
