@@ -8,12 +8,14 @@
 #include <stdio.h>
 #include "Class1.h"
 #include <math.h>
+#include <stdlib.h>
+#include "datapack.h"
 
 using namespace std;
 
 Class1::Class1(){}
 	void Class1::method1(){
-		int ages[6];
+		int ages[6]= {52,51,29,24,22,16};;
 			int* cursor;
 			cursor=ages;
 			int* off_board;
@@ -26,6 +28,22 @@ Class1::Class1(){}
 			cout << "value of cursor is..." << *cursor << "... address of cursor..." << &cursor << endl;
 			}
 	}
+	void Class1::method1_1(){
+		cout << "method1_1.... " << endl; //
+			int ages[6]= {52,51,29,24,22,16};
+				int* cursor;
+				//cursor=ages;
+				//int N=0;
+				int* off_board;
+				off_board=ages+6;
+				int counter=1;
+			    int* on_board = ages + 6 - 1;
+			    //printf( "%hi ");
+			    for (cursor = ages; cursor <= on_board; ++cursor) {
+			   // printf( "%hi ", *cursor );
+			    cout << "cursor...." << *cursor << endl;
+			    }
+		}
 	void Class1::method2(){
 		 int numbers[5];
 				  int * p; // value of p;
@@ -140,3 +158,21 @@ Class1::Class1(){}
 		}
 
 	}
+/*
+	void Class1::method7()
+	{
+		DataPack sort;
+		sort.sortData(Class1::DataPack1 data);
+
+		cout << "Reading data from stdin." << stderr <<  endl ;
+		//getData( &sort, stdin );
+		//fputs( stderr,"%i data items read.", sort.n );
+		//printData( sort, stderr );
+		//fputs( stderr,"Beginning to sort." );
+		//sortData( sort );
+		//fputs( stderr,"Data sorted; writing to output stream." );
+		//printData( sort, stdout );
+
+
+	}
+*/
